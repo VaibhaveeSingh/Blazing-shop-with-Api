@@ -1,0 +1,45 @@
+﻿@model BlazingShop.Models.ViewModel.NewAppointmentViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Appointment</h2>
+@using (Html.BeginForm("Save", "Appointment"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.PersonName)
+        @Html.TextBoxFor(m => m.Appointment.PersonName, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.Email)
+        @Html.TextBoxFor(m => m.Appointment.Email, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.PhoneNumber)
+        @Html.TextBoxFor(m => m.Appointment.PhoneNumber, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.Date)
+        @Html.TextBoxFor(m => m.Appointment.Date, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Appointment.Product.Name)
+        @Html.DropDownListFor(m => m.Appointment.Product.Id, new SelectList(Model.Product, "Id", "Name"), " ", new { @class = "form-control" })
+    </div>
+    
+        <div class="from-group">
+            @Html.LabelFor(m => m.Appointment.IsConfirmed)
+            @Html.CheckBoxFor(m => m.Appointment.IsConfirmed)
+        </div>
+    
+
+
+
+    @Html.HiddenFor(m => m.Appointment.AId)
+
+    <button type="submit" class="btn btn-success">Save</button>
+}
+

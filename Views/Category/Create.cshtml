@@ -1,0 +1,40 @@
+﻿@model BlazingShop.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@*<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>*@
+            @using (Html.BeginForm("Save","Category"))
+
+            {
+                <div class="modal-body">
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="form-row">
+                        @Html.LabelFor(c => c.CName)
+                        @Html.TextBoxFor(c => c.CName, new { @class = "form-row" })
+
+
+                    </div>
+                    @Html.HiddenFor(c=>c.CId)
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+            }
+            @*</div>
+    </div>
+</div>*@

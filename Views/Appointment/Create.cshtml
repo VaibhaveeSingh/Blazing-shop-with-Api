@@ -1,0 +1,45 @@
+﻿@model BlazingShop.Models.ViewModel.NewAppointmentViewModel
+@{ ViewBag.Title = "Create"; }
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+
+            <h2>BookAppointment</h2>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(m => m.Appointment.PersonName)
+                                    @Html.TextBoxFor(m => m.Appointment.PersonName)
+                                </div>
+                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Appointment.Email)
+                                                    @Html.TextBoxFor(m => m.Appointment.Email)
+                                 </div>
+                                                               <div class="form-group">
+                                                                    @Html.LabelFor(m => m.Appointment.PhoneNumber)
+                                                                    @Html.TextBoxFor(m => m.Appointment.PhoneNumber)
+                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    @Html.LabelFor(m => m.Appointment.Date)
+                                                                                    @Html.TextBoxFor(m => m.Appointment.Date)
+                                                                                </div>
+                                                                                                <div class="row form-group">
+                                                                                                    <div style="margin-left">
+                                                                                                        @Html.ActionLink("BackToList", "Index", "Appointment", null, new { @class = "btn btn-success" })
+                                                                                                        <br />
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                                                                        @*@Html.ActionLink("BookNow", "New", "Appointment", null, new { @class = "btn btn-primary", @type = "submit" })*@
+                                                                                                        @Html.HiddenFor(m => m.Appointment.AId)
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                @*@Html.HiddenFor(m => m.Appointment.AId)
+                                                                                                                    <button type="submit" class="btn btn-primary">BookNow</button>*@          
+            }
+        </div>
+    </div>
+</div>

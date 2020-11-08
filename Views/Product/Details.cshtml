@@ -1,0 +1,53 @@
+﻿@model BlazingShop.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-info">Product Details</h2>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">
+                @Html.DisplayNameFor(p => p.Price)
+            </label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(p => p.Price, new { @class = "form-control-plaintext" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">
+                @Html.DisplayNameFor(p => p.ShadeColour)
+            </label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(p => p.ShadeColour, new { @class = "form-control-plaintext" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">
+                @Html.DisplayNameFor(p => p.Name)
+            </label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(p => p.Name, new { @class = "form-control-plaintext" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">
+                @Html.DisplayNameFor(p => p.Category.CName)
+            </label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(p => p.Category.CName, new { @class = "form-control-plaintext" })
+            </div>
+        </div>
+        <img src='/Product/RetrieveImage/@Model.Id' class="rounded float-right" />
+    </div>
+    
+    <p>
+
+        @Html.ActionLink("Back to List", "Index", "Home", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Book Appointment", "New", "Appointment", null, new { @class = "btn btn-primary" })
+        @*@Html.ActionLink("Delete", "Delete", "Product", new { id = Model.Id }, new { @class = "btn btn-danger" })*@
+    </p>
